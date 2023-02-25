@@ -11,4 +11,6 @@ public record SdlHandle
 
         Handle = handle;
     }
+
+    public static implicit operator IntPtr(SdlHandle sdlHandle) => sdlHandle.Handle;
 }

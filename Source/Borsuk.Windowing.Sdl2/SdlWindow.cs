@@ -13,28 +13,28 @@ internal class SdlWindow : IWindow, ISdlObject
 
     public string Title
     {
-        get => SDL_GetWindowTitle(SdlHandle.Handle);
-        set => SDL_SetWindowTitle(SdlHandle.Handle, value);
+        get => SDL_GetWindowTitle(SdlHandle);
+        set => SDL_SetWindowTitle(SdlHandle, value);
     }
 
     public WindowSize Size
     {
         get
         {
-            SDL_GetWindowSize(SdlHandle.Handle, out var width, out var height);
+            SDL_GetWindowSize(SdlHandle, out var width, out var height);
             return new WindowSize(width, height);
         }
-        set => SDL_SetWindowSize(SdlHandle.Handle, value.Width, value.Height);
+        set => SDL_SetWindowSize(SdlHandle, value.Width, value.Height);
     }
 
     public WindowPosition Position
     {
         get
         {
-            SDL_GetWindowPosition(SdlHandle.Handle, out var x, out var y);
+            SDL_GetWindowPosition(SdlHandle, out var x, out var y);
             return new WindowPosition(x, y);
         }
-        set => SDL_SetWindowPosition(SdlHandle.Handle, value.X, value.Y);
+        set => SDL_SetWindowPosition(SdlHandle, value.X, value.Y);
     }
 
     public event EventHandler? Shown;
@@ -42,18 +42,18 @@ internal class SdlWindow : IWindow, ISdlObject
 
     public void Show()
     {
-        SDL_ShowWindow(SdlHandle.Handle);
+        SDL_ShowWindow(SdlHandle);
         Shown?.Invoke(this, EventArgs.Empty);
     }
 
     public void Hide()
     {
-        SDL_HideWindow(SdlHandle.Handle);
+        SDL_HideWindow(SdlHandle);
         Hidden?.Invoke(this, EventArgs.Empty);
     }
 
     public void Dispose()
     {
-        SDL_DestroyWindow(SdlHandle.Handle);
+        SDL_DestroyWindow(SdlHandle);
     }
 }
