@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    
+    <ItemGroup>
+      <PackageReference Include="ppy.SDL2-CS" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <Using Include="SDL2.SDL" Static="true" />
+    </ItemGroup>
+
+</Project>

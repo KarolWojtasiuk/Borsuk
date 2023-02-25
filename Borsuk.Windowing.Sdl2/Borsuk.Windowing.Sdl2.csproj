@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    
+    <ItemGroup>
+        <ProjectReference Include="..\Borsuk.Sdl\Borsuk.Sdl.csproj" />
+        <ProjectReference Include="..\Borsuk.Windowing\Borsuk.Windowing.csproj" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <Using Include="SDL2.SDL" Static="true" />
+    </ItemGroup>
+
+</Project>
