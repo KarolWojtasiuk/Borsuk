@@ -17,22 +17,22 @@ internal class SdlWindow : IWindow, ISdlObject
         set => SDL_SetWindowTitle(SdlHandle, value);
     }
 
-    public WindowSize Size
+    public IntVector2 Size
     {
         get
         {
             SDL_GetWindowSize(SdlHandle, out var width, out var height);
-            return new WindowSize(width, height);
+            return new IntVector2(width, height);
         }
-        set => SDL_SetWindowSize(SdlHandle, value.Width, value.Height);
+        set => SDL_SetWindowSize(SdlHandle, value.X, value.Y);
     }
 
-    public WindowPosition Position
+    public IntVector2 Position
     {
         get
         {
             SDL_GetWindowPosition(SdlHandle, out var x, out var y);
-            return new WindowPosition(x, y);
+            return new IntVector2(x, y);
         }
         set => SDL_SetWindowPosition(SdlHandle, value.X, value.Y);
     }
@@ -50,6 +50,17 @@ internal class SdlWindow : IWindow, ISdlObject
     {
         SDL_HideWindow(SdlHandle);
         Hidden?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void ProcessEvents()
+    {
+        while (SDL_PollEvent(out var sdlEvent) != 0)
+        {
+            if (sdlEvent.type == SDL_EventType.SDL_WINDOWEVENT && sdlEvent.window.windowEvent == SDL_WindowEventID.SDL_WINDOWEVENT_CLOSE)
+                Dispose(); // TODO
+
+            //TODO: handle events
+        }
     }
 
     public void Dispose()
