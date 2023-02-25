@@ -6,7 +6,7 @@ public interface IRenderer : IDisposable
 {
     public Color DrawColor { get; set; }
     public void Clear();
-    public void DrawPoint(IntVector2 position);
-    public void DrawLine(IntVector2 from, IntVector2 to);
+    public void DrawPoint(Vector2<int> position);
+    public void DrawLine(Vector2<int> from, Vector2<int> to);
     public void Render();
 }

@@ -3,8 +3,8 @@ namespace Borsuk.Windowing;
 public interface IWindow : IDisposable
 {
     public string Title { get; set; }
-    public IntVector2 Size { get; set; }
-    public IntVector2 Position { get; set; }
+    public Vector2<int> Size { get; set; }
+    public Vector2<int> Position { get; set; }
 
     public void Show();
     public void Hide();
@@ -12,4 +12,5 @@ public interface IWindow : IDisposable
 
     public event EventHandler? Shown;
     public event EventHandler? Hidden;
+    public event EventHandler? Closing;
 }

@@ -27,12 +27,12 @@ internal class SdlRenderer : IRenderer, ISdlObject
         SDL_RenderClear(SdlHandle);
     }
 
-    public void DrawPoint(IntVector2 position)
+    public void DrawPoint(Vector2<int> position)
     {
         SDL_RenderDrawPoint(SdlHandle, position.X, position.Y);
     }
 
-    public void DrawLine(IntVector2 from, IntVector2 to)
+    public void DrawLine(Vector2<int> from, Vector2<int> to)
     {
         SDL_RenderDrawLine(SdlHandle, from.X, from.Y, to.X, to.Y);
     }

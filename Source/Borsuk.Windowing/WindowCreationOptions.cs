@@ -1,3 +1,3 @@
 namespace Borsuk.Windowing;
 
-public record WindowCreationOptions(string Title, WindowSize Size, IntVector2? Position = null);
+public record WindowCreationOptions(string Title, WindowSize Size, Vector2<int>? Position = null);
